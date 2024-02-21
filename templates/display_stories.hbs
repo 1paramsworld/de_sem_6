@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Stories</title>
+    <style>
+        body {
+            font-family: Verdana;
+    background-color: #1f1f1f; /* Dark background */
+    color: #fff; /* Light text */
+    margin: 0;
+    padding: 0;
+    background-image: url(https://wallpaperaccess.com/full/6375161.jpg);
+                background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+}
+
+.container {
+    max-width: 600px; /* Adjusted max-width */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333; /* Dark container background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* White shadow */
+}
+
+h1 {
+    text-align: center;
+    color: #fff; /* Light text */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin: 20px 100px; /* Equal margin left and right */
+    padding: 20px;
+    background-color: #444; /* Darker row background */
+    border-radius: 12px; /* Slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* White shadow */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    height: 200px; /* Set height of the box */
+}
+
+    </style>
+</head>
+<body>
+    <h1>Fitness Stories</h1>
+    <ul>
+        {{#each stories}}
+        <li>{{this.story}}</li>
+        {{/each}}
+    </ul>
+</body>
+</html>

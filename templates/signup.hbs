@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2016/11/19/12/43/barbell-1839086_960_720.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 80%;
+            max-width: 400px; /* Optional: Set maximum width */
+            height: auto; /* Adjust height based on content */
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Optional: Align items vertically */
+        }
+        .container form {
+            width: 100%;
+        }
+        .container form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .container form input[type="text"],
+        .container form input[type="email"],
+        .container form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 20px;
+        }
+        .container form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .container form input[type="submit"]:hover {
+            background-color: #212121;
+        }
+        .container .btn-container {
+            margin-top: 20px;
+        }
+        .container .btn-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        .container .btn-container a:hover {
+            background-color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="signupForm" action="/signup" method="post">
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="useremail">Email:</label>
+            <input type="email" id="useremail" name="useremail" required>
+            
+            <label for="userpassword">Password:</label>
+            <input type="password" id="userpassword" name="userpassword" required min="8">
+            
+            <input type="submit" value="Signup">
+        </form>
+        <div class="btn-container">
+            <a href="/">Go to Login</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            var usernameInput = document.getElementById("username");
+            if (usernameInput.value.includes(" ")) {
+                alert("Username cannot contain spaces");
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>

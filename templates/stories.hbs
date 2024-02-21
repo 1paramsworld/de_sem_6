@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background color */
+            color: #fff; /* White text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #111; /* Dark gray background color */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* White shadow */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: calc(100% - 22px); /* Adjust for padding and border */
+            height: 200px; /* Adjust height as needed */
+            padding: 10px;
+            border: 1px solid #333; /* Dark gray border */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            resize: vertical; /* Allow vertical resizing */
+            box-sizing: border-box;
+            background-color: #222; /* Dark gray background color */
+            color: #fff; /* White text color */
+        }
+
+        input[type="submit"] {
+            background-color: #e9caca; /* Black background color */
+            color: #000000; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #b94c4c; /* Dark gray background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <form action="/addstory" method="post" onsubmit="return validateForm()">
+        <label for="stories">Share your fitness Journey:</label>
+        <textarea name="stories" id="stories"></textarea>
+        <input type="submit" id="submitButton" value="Submit">
+    </form>
+    <br><br><br><br><br>
+    <form action="/displaystories" method="post">
+        <input type="submit" name="displayer" value="Display Stories">
+    </form>
+
+    <script>
+        function validateForm() {
+            var inputField = document.getElementById("stories");
+            var wordCount = inputField.value.trim().split(/\s+/).length;
+
+            if (wordCount < 10) {
+                alert("Please enter at least 10 words.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>

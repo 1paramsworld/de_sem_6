@@ -1,0 +1,266 @@
+{{!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Fit</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/2465434.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            overflow: hidden; /* Prevents scrolling */
+
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 36px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+        }
+        .buttons {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4A90E2;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px 0;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            width: 200px;
+        }
+        .buttons:hover {
+            background-color: #357DCD;
+        }
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .link {
+            margin: 10px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .link:hover {
+            color: #999;
+        }
+        .yt-links {
+            margin-top: 20px;
+        }
+        .yt-link {
+            margin: 10px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .yt-link:hover {
+            color: #999;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Gym Fit, {{ username }}</h1>
+    </header>
+
+    <div class="container">
+        <form action="/diet" method="post">
+            <button class="buttons">Diet</button>
+        </form>
+
+        <form action="/workout" method="post">
+            <button class="buttons">Workout</button>
+        </form>
+
+        <form action="/stories" method="post">
+
+            <button class="buttons">Fitness Stories</button>
+        </form>
+        
+        <div class="links">
+            <a href="https://www.bodybuilding.com/" class="link">Bodybuilding.com</a>
+            <a href="https://www.menshealth.com/fitness/" class="link">Men's Health Fitness</a>
+            <a href="https://www.womenshealthmag.com/fitness/" class="link">Women's Health Fitness</a>
+            <a href="https://www.healthline.com/health/fitness-exercise" class="link">Healthline - Fitness</a>
+        </div>
+
+        <div class="yt-links">
+            <a href="https://www.youtube.com/watch?v=9bknmLqyBVo" class="yt-link">Workout for Beginners</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="yt-link">Quick Cardio Routine</a>
+            <a href="https://www.youtube.com/watch?v=kpNzgqDg4hs" class="yt-link">Yoga for Flexibility</a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2024 Gym Fit | All Rights Reserved
+        </div>
+    </div>
+</body>
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Fit</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/2465434.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            overflow: hidden; /* Prevents scrolling */
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 36px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+        }
+        .buttons {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4A90E2;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px 0;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            width: 200px;
+        }
+        .buttons:hover {
+            background-color: #357DCD;
+        }
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .link {
+            margin: 10px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .link:hover {
+            color: #999;
+        }
+        .yt-links {
+            margin-top: 20px;
+        }
+        .yt-link {
+            margin: 10px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .yt-link:hover {
+            color: #999;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        /* Logout button */
+        #logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #logout-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Gym Fit, {{ username }}</h1>
+        <form action="/logout" method="post">
+        <button id="logout-button">Logout</button>
+        </form>
+    </header>
+
+    <div class="container">
+        <form action="/diet" method="post">
+            <button class="buttons">Diet</button>
+        </form>
+
+        <form action="/workout" method="post">
+            <button class="buttons">Workout</button>
+        </form>
+
+        <form action="/stories" method="post">
+            <button class="buttons">Fitness Stories</button>
+        </form>
+        
+        <div class="links">
+            <a href="https://www.bodybuilding.com/" class="link">Bodybuilding.com</a>
+            <a href="https://www.menshealth.com/fitness/" class="link">Men's Health Fitness</a>
+            <a href="https://www.womenshealthmag.com/fitness/" class="link">Women's Health Fitness</a>
+            <a href="https://www.healthline.com/health/fitness-exercise" class="link">Healthline - Fitness</a>
+        </div>
+
+        <div class="yt-links">
+            <a href="https://www.youtube.com/watch?v=9bknmLqyBVo" class="yt-link">Workout for Beginners</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="yt-link">Quick Cardio Routine</a>
+            <a href="https://www.youtube.com/watch?v=kpNzgqDg4hs" class="yt-link">Yoga for Flexibility</a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2024 Gym Fit | All Rights Reserved
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("logout-button").addEventListener("click", function() {
+            window.location.href = "/logout";
+        });
+    </script>
+</body>
+</html>

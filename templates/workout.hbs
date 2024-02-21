@@ -1,0 +1,213 @@
+{{!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url(https://media.gettyimages.com/id/601821925/photo/bodybuilder-performing-squats-with-a-barbell-in-gym.webp?s=1024x1024&w=gi&k=20&c=o0imOhsqCuuk3hyWFPsKnmoSrYhOiO-d6GIUMDX3-Dw=);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.215);
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 80%;
+        }
+
+        .box {
+            border: 4px solid black;
+            padding: 10px;
+            margin: 20px;
+            text-align: center;
+            width: 40%;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+            flex-grow: 1;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        .box img {
+            max-width: 100%;
+        }
+
+        .box h3 {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .box p {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            
+            <div class="box">
+                <img src="https://e1.pxfuel.com/desktop-wallpaper/559/318/desktop-wallpaper-tattoos-men-muscle-workout-human-back-athletic-bodybuilding-men-workout.jpg" alt="Image 1">
+                <h3>Back</h3>
+                <p>Strengthen your posterior chain and improve posture with targeted back exercises</p>
+            </div>
+            <div class="box">
+                <img src="http://assets.menshealth.co.uk/main/assets/dips-to-do-in-gy.jpg?mtime=1528724103" alt="Image 2">
+                <h3>Triceps</h3>
+                <p>Build strong and defined triceps to enhance arm strength and appearance</p>
+            </div>
+            <div class="box">
+                <img src="https://thumbs.dreamstime.com/z/young-man-performing-front-double-biceps-pose-portrait-physically-fit-flexing-muscles-47853282.jpg" alt="Image 2">
+                <h3>Biceps</h3>
+                <p>Define your biceps and achieve the coveted 'arm pump' with focused biceps workouts</p>
+            </div>        
+            <div class="box">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.wdgxptxNPho0hWhfQOSKugHaE-&pid=Api&P=0&h=180" alt="Image 2">
+                <h3>Shoulders</h3>
+                <p>Develop broad and powerful shoulders for better upper body strength and stability</p>
+            </div>        
+            <div class="box">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.axvBlcA4uEzUKwCsWb6xHwHaEK&pid=Api&P=0&h=180" alt="Image 2">
+                <h3>Chest</h3>
+                <p>Sculpt a powerful chest and enhance upper body aesthetics with chest-focused exercises.</p>
+            </div>        
+            <div class="box">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.nsKaYW56bQsVeA4u3BVwXAHaE8&pid=Api&P=0&h=180" alt="Image 2">
+                <h3>Cardio</h3>
+                <p>Boost cardiovascular health and endurance with dynamic cardio routines</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url(https://media.gettyimages.com/id/601821925/photo/bodybuilder-performing-squats-with-a-barbell-in-gym.webp?s=1024x1024&w=gi&k=20&c=o0imOhsqCuuk3hyWFPsKnmoSrYhOiO-d6GIUMDX3-Dw=);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.215);
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 80%;
+        }
+
+        .box {
+            border: 4px solid black;
+            padding: 10px;
+            margin: 20px;
+            text-align: center;
+            width: 40%;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+            flex-grow: 1;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        .box img {
+            max-width: 100%;
+        }
+
+        .box h3 {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .box p {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="box" onclick="document.getElementById('backForm').submit()">
+                <form id="backForm" action="/back" method="post">
+                    <img src="https://e1.pxfuel.com/desktop-wallpaper/559/318/desktop-wallpaper-tattoos-men-muscle-workout-human-back-athletic-bodybuilding-men-workout.jpg" alt="Image 1">
+                    <h3>Back</h3>
+                    <p>Strengthen your posterior chain and improve posture with targeted back exercises</p>
+                </form>
+            </div>
+            <div class="box" onclick="document.getElementById('tricepsForm').submit()">
+                <form id="tricepsForm" action="/triceps" method="post">
+                    <img src="http://assets.menshealth.co.uk/main/assets/dips-to-do-in-gy.jpg?mtime=1528724103" alt="Image 2">
+                    <h3>Triceps</h3>
+                    <p>Build strong and defined triceps to enhance arm strength and appearance</p>
+                </form>
+            </div>
+            <div class="box" onclick="document.getElementById('bicepsForm').submit()">
+                <form id="bicepsForm" action="/biceps" method="post">
+                    <img src="https://thumbs.dreamstime.com/z/young-man-performing-front-double-biceps-pose-portrait-physically-fit-flexing-muscles-47853282.jpg" alt="Image 3">
+                    <h3>Biceps</h3>
+                    <p>Define your biceps and achieve the coveted 'arm pump' with focused biceps workouts</p>
+                </form>
+            </div>
+            <div class="box" onclick="document.getElementById('shouldersForm').submit()">
+                <form id="shouldersForm" action="/shoulders" method="post">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.wdgxptxNPho0hWhfQOSKugHaE-&pid=Api&P=0&h=180" alt="Image 4">
+                    <h3>Shoulders</h3>
+                    <p>Develop broad and powerful shoulders for better upper body strength and stability</p>
+                </form>
+            </div>
+            <div class="box" onclick="document.getElementById('chestForm').submit()">
+                <form id="chestForm" action="/chest" method="post">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.axvBlcA4uEzUKwCsWb6xHwHaEK&pid=Api&P=0&h=180" alt="Image 5">
+                    <h3>Chest</h3>
+                    <p>Sculpt a powerful chest and enhance upper body aesthetics with chest-focused exercises.</p>
+                </form>
+            </div>
+            <div class="box" onclick="document.getElementById('cardioForm').submit()">
+                <form id="cardioForm" action="/cardio" method="post">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.nsKaYW56bQsVeA4u3BVwXAHaE8&pid=Api&P=0&h=180" alt="Image 6">
+                    <h3>Cardio</h3>
+                    <p>Boost cardiovascular health and endurance with dynamic cardio routines</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

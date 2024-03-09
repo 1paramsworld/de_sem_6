@@ -25,8 +25,66 @@ app.set("views", templatepath);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.post("/backhome",(req,res)=>{
+    res.redirect("/")
+})
+
+app.post("/about",(req,res)=>{
+    res.redirect("/about")
+})
 
 
+
+app.get("/workout/back",(req,res)=>{
+    res.render("back")
+})
+app.post("/back",(req,res)=>{
+    res.redirect("/workout/back")
+})
+
+app.get("/workout/cardio",(req,res)=>{
+    res.render("cardio")
+})
+app.post("/cardio",(req,res)=>{
+    res.redirect("/workout/cardio")
+})
+
+app.get("/workout/biceps",(req,res)=>{
+    res.render("biceps")
+})
+app.post("/biceps",(req,res)=>{
+    res.redirect("/workout/biceps")
+})
+
+
+app.get("/workout/triceps",(req,res)=>{
+    res.render("triceps")
+})
+app.post("/back",(req,res)=>{
+    res.redirect("/workout/triceps")
+})
+
+
+app.get("/workout/shoulders",(req,res)=>{
+    res.render("shoulders")
+})
+app.post("/shoulders",(req,res)=>{
+    res.redirect("/workout/shoulders")
+})
+
+
+
+app.get("/workout/chest",(req,res)=>{
+    res.render("chest")
+})
+
+app.post("/chest",(req,res)=>{
+    res.redirect("/workout/chest")
+})
+
+app.post("/back",(req,res)=>{
+    res.redirect("/workout/back")
+})
 app.get("/", (req, res) => {
     res.render("login");
 });
@@ -165,6 +223,18 @@ app.post("/logout",(req,res)=>{
     })
     res.redirect("/")
 })
+
+app.get("/about",(req,res)=>{
+    res.render("aboutus")
+})
+
+app.post("/aboutus",(req,res)=>{
+    let a=1;
+    if(a==1){
+        req.session.user=a;
+        res.redirect("about")
+    }
+})
 app.post("/login", (req, res) => {
     const url = "mongodb://0.0.0.0:27017";
     const client = new MongoClient(url);
@@ -289,7 +359,7 @@ app.post("/Weightloss",(req,res)=>{
     res.redirect("/diet/Weightloss")
 })
 
-app.get("/workout",requirelogin,(req,res)=>{
+app.get("/workout",(req,res)=>{
     res.render("workout")
 })
 app.post("/workout",(req,res)=>{

@@ -4,6 +4,8 @@ const { MongoClient } = require("mongodb");
 const path = require("path");
 const session = require('express-session');
 
+
+
 const templatepath = path.join(__dirname, "../templates");
 app.set("view engine", "hbs");
 app.use(session({
@@ -117,11 +119,25 @@ app.post("/signup", (req, res) => {
 
                 const db = client.db("fit-bit-gym");
                 const collection = db.collection("users");
+
     
+                const currentDate = new Date();
+                const currentYear = currentDate.getFullYear();
+                const currentMonth = currentDate.getMonth() + 1; 
+                const currentDay = currentDate.getDate();
+                const currentHour = currentDate.getHours();
+                const currentMinute = currentDate.getMinutes();
+                const currentSecond = currentDate.getSeconds();
+                const padZero = (num) => (num < 10 ? `0${num}` : num); 
+
+                const dateTimeString = `${currentDay}:${padZero(currentMonth)}:${padZero(currentYear)} ${padZero(currentHour)}:${padZero(currentMinute)}:${padZero(currentSecond)}`;
+
                 const data = {
                     name: req.body.username,
                     email: req.body.useremail,
-                    password: req.body.userpassword
+                    password: req.body.userpassword,
+                    visits:1,
+                    lastvisit:dateTimeString
                 };
                 res.redirect(`/${req.body.username}/home`);
                 console.log("Data inserted successfully");
@@ -235,42 +251,60 @@ app.post("/aboutus",(req,res)=>{
         res.redirect("about")
     }
 })
-app.post("/login", (req, res) => {
-    const url = "mongodb://0.0.0.0:27017";
-    const client = new MongoClient(url);
+app.post("/login", async (req, res) => {
+    try {
+        const url = "mongodb://0.0.0.0:27017";
+        const client = new MongoClient(url);
+        await client.connect();
 
-    client.connect()
-        .then(() => {
-            const db = client.db("fit-bit-gym");
-            const collection = db.collection("users");
-            
-            const query = {
-                email: req.body.useremail,
-                password: req.body.userpassword
-            };
-            
-            return collection.findOne(query);
-        })
-        .then(user => {
-            if (user) {
-                app.get("/:email/home", (req, res) => {
-                    const email = req.params.email;
-                    res.render("home", { username: email });
-                });
-                
-                res.redirect(`/${user.name}/home`);
-            } else {
-                res.redirect("/?error=invalid");
-            }
-        })
-        .catch(error => {
-            console.error("Error logging in:", error);
-            res.status(500).send("Error logging in");
-        })
-        .finally(() => {
-            client.close();
-        });
+        const db = client.db("fit-bit-gym");
+        const collection = db.collection("users");
+
+        const query = {
+            email: req.body.useremail,
+            password: req.body.userpassword
+        };
+
+        const user = await collection.findOne(query);
+
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1; 
+        const currentDay = currentDate.getDate();
+        const currentHour = currentDate.getHours();
+        const currentMinute = currentDate.getMinutes();
+        const currentSecond = currentDate.getSeconds();
+        const padZero = (num) => (num < 10 ? `0${num}` : num); 
+
+        const dateTimeString = `${currentDay}:${padZero(currentMonth)}:${padZero(currentYear)} ${padZero(currentHour)}:${padZero(currentMinute)}:${padZero(currentSecond)}`;
+
+        if (user) {
+            const updatedUser = await collection.updateOne(
+                { _id: user._id },
+                {
+                    $set: {
+                        visits: user.visits + 1,
+                        lastvisit: dateTimeString
+                    }
+                }
+            );
+
+            app.get("/:email/home", (req, res) => {
+                const email = req.params.email;
+                res.render("home", { username: email });
+            });
+            res.redirect(`/${user.name}/home`);
+        } else {
+            res.redirect("/?error=invalid");
+        }
+
+        client.close();
+    } catch (error) {
+        console.error("Error logging in:", error);
+        res.status(500).send("Error logging in");
+    }
 });
+
 
 app.get("/stories/displaystories", async (req, res) => {
     const url = "mongodb://0.0.0.0:27017";

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: rgb(44, 22, 22);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-image: url(https://images.creativemarket.com/0.1.0/ps/7825592/1919/1079/m1/fpnw/wm0/40-gym_1080px-.jpg?1582722978&s=0aa0c9d4243e65a0ee0c2ba4d58d23af);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 40px; /* Adjust margin for spacing */
+        }
+        input[type="submit"] {
+            background-color: black; 
+            padding: 20px; /* Adjust padding to make the buttons round */
+            color: white;
+            margin-top: 20px; /* Adjust margin for spacing */
+            margin-bottom: 10px; /* Adjust margin for spacing */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 20px;
+            width: 200px; /* Set width for consistency */
+            border-radius: 50px; /* Make the buttons round */
+            border: none; /* Remove border */
+            cursor: pointer; /* Add cursor pointer on hover */
+        }
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, rgba(37, 31, 31, 0.616), rgb(60, 60, 60));
+        }
+        #addForm {
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #addForm label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: black;
+        }
+        #addForm input[type="text"],
+        #addForm input[type="email"],
+        #addForm input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+        #addForm input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #addForm input[type="submit"]:hover {
+            background: linear-gradient(to right, rgba(37, 31, 31, 0.616), rgb(60, 60, 60));
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Greetings, Admin</h1>
+    <div class="button-container">
+        <form action="/showusers" method="post">
+            <input type="submit" value="Users">
+        </form>
+        <form action="/showtrainers" method="post">
+            <input type="submit" value="Trainers">
+        </form>
+        <form action="/showvisits" method="post">
+            <input type="submit" value="Visits">
+        </form>
+        <button onclick="toggleForm()">Add</button> <!-- Changed input type to button and added onclick event -->
+        <form action="/add" method="post" id="addForm" class="hidden"> <!-- Added id and class to form -->
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+        
+            <label for="useremail">Email</label>
+            <input type="email" name="useremail" id="useremail">
+        
+            <label for="userpassword">Password</label>
+            <input type="password" name="userpassword" id="userpassword">
+            <input type="submit" value="Submit"> 
+        </form>
+        <form action="/remove" method="post">
+            <input type="submit" value="Remove" class="round">
+        </form>
+    </div>
+
+
+
+    {{!-- <form action="">
+        <label for="">Username</label>
+        <input type="text" name="username">
+    
+        <label for="">Email</label>
+        <input type="email" name="useremail">
+    
+        <label for="">Password</label>
+        <input type="password" name="userpassword">
+        <input type="submit" value="submit"> 
+    </form> --}}
+</body>
+</html>
